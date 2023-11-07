@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nino <nino@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 19:27:51 by nino              #+#    #+#             */
-/*   Updated: 2023/11/07 19:26:09 by nino             ###   ########.fr       */
+/*   Created: 2023/11/07 19:18:29 by nino              #+#    #+#             */
+/*   Updated: 2023/11/07 19:20:39 by nino             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-void    ft_bzero(void *s, size_t n)
+char    *ft_strrrchr(const char *s, int c)
 {
-    char    *data;
-    size_t i;
+    int cur;
+    char *res;
 
-    data = (char *)s;
-    i = 0;
-    while (i < n)
+    cur = 0;
+    res = 0;
+    while (s[cur])
     {
-        data[i] = 0;
-        i++;
+        if (s[cur] == (char *)c)
+            res = (char *)(s + cur);
+        cur++;
     }
+    if (s[cur] == (char *)c)
+        res;
+    return (res); 
 }
-

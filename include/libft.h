@@ -6,7 +6,7 @@
 /*   By: nino <nino@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:49:19 by nino              #+#    #+#             */
-/*   Updated: 2023/11/05 19:49:32 by nino             ###   ########.fr       */
+/*   Updated: 2023/11/07 19:18:02 by nino             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ int ft_isascii(int c);
 int ft_isprint(int c);
 void    *ft_memset(void *str, int c, size_t n);
 void    ft_bzero(void *s, size_t n);
+int ft_strlen(char *str);
+size_t  ft_strlcat(char *dest, const char *src, size_t destsize);
+
 
 
 #endif

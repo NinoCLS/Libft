@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nino <nino@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 19:27:51 by nino              #+#    #+#             */
-/*   Updated: 2023/11/07 19:26:09 by nino             ###   ########.fr       */
+/*   Created: 2023/11/07 19:26:49 by nino              #+#    #+#             */
+/*   Updated: 2023/11/07 19:35:30 by nino             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdio.h>
 
-void    ft_bzero(void *s, size_t n)
+void    *memchr(const void *s, int c, size_t n)
 {
-    char    *data;
-    size_t i;
+    size_t  i;
+    unsigned char const *data;
 
-    data = (char *)s;
     i = 0;
+    data = (unsigned char *)s;
     while (i < n)
     {
-        data[i] = 0;
+        if (data[i] == (unsigned char)c)
+            return (data + i);
         i++;
     }
+    return (NULL);
 }
-
