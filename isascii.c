@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   isascii.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nino <nino@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nclassea <nclassea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:47:35 by nino              #+#    #+#             */
-/*   Updated: 2023/11/02 15:44:50 by nino             ###   ########.fr       */
+/*   Updated: 2023/11/08 13:51:41 by nclassea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    return (c >= 0 && c <= 127);
+	return (c >= 0 && c <= 127);
 }

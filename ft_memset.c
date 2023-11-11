@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nino <nino@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nclassea <nclassea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 19:17:04 by nino              #+#    #+#             */
-/*   Updated: 2023/11/07 19:17:35 by nino             ###   ########.fr       */
+/*   Created: 2023/11/05 15:32:04 by nino              #+#    #+#             */
+/*   Updated: 2023/11/10 11:51:01 by nclassea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(char *str)
-{
-    int i;
+#include "libft.h"
 
-    i = 0;
-    while (str[i])
-        i++;
-    return (i);
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*data;
+	unsigned char	val;
+
+	i = 0;
+	data = s;
+	val = (unsigned char)c;
+	while (i < n)
+	{
+		data[i] = val;
+		i++;
+	}
+	return (data);
 }

@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isprint.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nino <nino@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nclassea <nclassea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 15:42:37 by nino              #+#    #+#             */
-/*   Updated: 2023/11/03 23:26:14 by nino             ###   ########.fr       */
+/*   Created: 2023/11/08 18:12:32 by nclassea          #+#    #+#             */
+/*   Updated: 2023/11/10 16:32:52 by nclassea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(int c)
+#include "libft.h"
+
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-    return (c >= 32 && c <= 126);
+	char	*ptr;
+
+	if (nmemb == 0 || size == 0)
+		nmemb = size - 1;
+	ptr = malloc(sizeof(char) * (nmemb * size));
+	if (!ptr)
+		return (0);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }

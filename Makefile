@@ -1,30 +1,54 @@
+# Nom de la bibliothèque
 NAME = libft.a
-CC = gcc
+
+# Compilateur
+CC = cc
+
+# Options de compilation
 CFLAGS = -Wall -Wextra -Werror
-SRC_DIR = src
-OBJ_DIR = bin
-INCLUDE_DIR = include
-SRCS = $(wildcard $(SRC_DIR)/*.c)
-OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
-OBJS_BONUS = 
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE_DIR)/libft.h
-	$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -c $< -o $@
+# Liste de tous les fichiers .c à compiler
+SRCS_BONUS = $(wildcard ft_*_bonus.c)
 
+# Exclure les fichiers bonus
+SRCS = $(filter-out ft_*_bonus.c,$(wildcard *.c))
+
+OBJS = $(SRCS:.c=.o)
+
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+# Commande pour créer la bibliothèque statique
+AR = ar rc
+
+# Commande pour indexer la bibliothèque
+LIB = ranlib
+
+# Répertoire des en-têtes (s'il existe)
+HEAD = .
+
+# Règle pour la construction de la bibliothèque
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
-bonus: $(OBJS_BONUS)
-	ar rcs $(NAME) $(OBJS_BONUS)
+# Règle pour la compilation des fichiers bonus
+bonus: $(OBJS) $(OBJS_BONUS)
+	$(AR) $(NAME) $(OBJS) $(OBJS_BONUS)
 
+#POUR LES TESTS A RETIRER###########################################################################
+so:
+	$(CC) -fPIC $(CFLAGS) -c $(SRCS)  # Compilation des fichiers sources en fichiers objets
+	$(CC) -shared -o libft.so $(OBJS)  # Création de la bibliothèque partagée
+
+# Règle pour nettoyer les fichiers objets
 clean:
-	/bin/rm -f $(OBJS) $(OBJS_BONUS)
+	rm -f $(OBJS) $(OBJS_BONUS)
 
+# Règle pour nettoyer tous les fichiers générés
 fclean: clean
-	/bin/rm -f $(NAME)
+	rm -f $(NAME)
 
+# Règle pour recompiler tout depuis le début
 re: fclean all
 
 .PHONY: all clean fclean re bonus
