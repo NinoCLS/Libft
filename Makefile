@@ -37,8 +37,8 @@ bonus: $(OBJS) $(OBJS_BONUS)
 
 #POUR LES TESTS A RETIRER###########################################################################
 so:
-	$(CC) -fPIC $(CFLAGS) -c $(SRCS)  # Compilation des fichiers sources en fichiers objets
-	$(CC) -shared -o libft.so $(OBJS)  # Création de la bibliothèque partagée
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 # Règle pour nettoyer les fichiers objets
 clean:
